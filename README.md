@@ -1,6 +1,6 @@
 # Pokemon GO Api Client
 
-Proof of concept, don not use anywhere!  
+Proof of concept, do not use anywhere!  
 
 ### Install dependencies & compile protobuf 
 ```
