@@ -1,0 +1,30 @@
+{
+    "name": "norzechowicz/pkg-client-php",
+    "license": "MIT",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/mgansler/GPSOAuthPHP"
+        }
+    ],
+    "require": {
+        "protobuf-php/protobuf-plugin": "^0.1.0@dev",
+        "guzzlehttp/guzzle": "^6.0",
+        "mgansler/GPSOAuthPHP": "dev-master"
+    },
+    "authors": [
+        {
+            "name": "Norbert Orzechowicz",
+            "email": "norbert@orzechowicz.pl"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "scripts": {
+        "compile": "php ./vendor/bin/protobuf -i ./proto -o ./src ./proto/*"
+    }
+}
