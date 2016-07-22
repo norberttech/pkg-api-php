@@ -11,11 +11,11 @@ $ composer compile
 ### Obtain user profile with google auth
 
 ```
-php bin/google.php login@google.com YOUR_PASSWORD
+php bin/google.php login@google.com YOUR_GOOGLE_ACCOUNT_PASSWORD
 ```
 
 ### Obtain user profile with pokemon club auth
 
 ```
-php bin/google.php login@google.com YOUR_PASSWORD
+php bin/ptc.php login YOUR_PASSWORD
 ```
