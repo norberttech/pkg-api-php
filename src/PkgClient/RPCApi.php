@@ -11,7 +11,6 @@ use PkgClient\Protocol\Communication\Request;
 use PkgClient\Protocol\Communication\Response;
 use PkgClient\Protocol\Enum\RequestMethod;
 use PkgClient\Protocol\Enum\RpcDirection;
-use PkgClient\Protocol\Message\MapCell;
 use PkgClient\SDK\Location;
 use PkgClient\SDK\Session;
 use Protobuf\MessageCollection;
@@ -21,7 +20,7 @@ final class RPCApi
 {
     const API_ENTRY_URL = 'https://pgorelease.nianticlabs.com/plfe/rpc';
     const HTTP_USER_AGENT = 'Niantic App';
-    const RPC_ID = 8145806132888207531;
+    const RPC_ID = 8145806132888207460;
 
     /**
      * @var Client

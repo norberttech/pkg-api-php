@@ -18,6 +18,7 @@ final class PokemonClub implements Authenticator
     const OAUTH_CLIENT_REDIRECT_URI = 'https://www.nianticlabs.com/pokemongo/error';
     const OAUTH_CLIENT_SECRET = 'w8ScCUXJQc6kXKw8FiOhd8Fixzht18Dq3PEVkUCP5ZPxtgyWsbTvWHFLm2wNY0JR';
     const OAUTH_CLIENT_GRANT_TYPE = 'refresh_token';
+    const AUTH_TYPE = 'ptc';
 
     /**
      * @var Client
@@ -81,6 +82,6 @@ final class PokemonClub implements Authenticator
         $tokenQuery = (string) $tokenResponse->getBody();
         parse_str($tokenQuery, $tokenData);
 
-        return new Token($tokenData['access_token'], (int) $tokenData['expires'], 'pct');
+        return new Token($tokenData['access_token'], (int) $tokenData['expires'], self::AUTH_TYPE );
     }
 }
