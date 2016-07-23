@@ -11,6 +11,7 @@ use PkgClient\Protocol\Communication\Request;
 use PkgClient\Protocol\Communication\Response;
 use PkgClient\Protocol\Enum\RequestMethod;
 use PkgClient\Protocol\Enum\RpcDirection;
+use PkgClient\Protocol\Message\MapCell;
 use PkgClient\SDK\Location;
 use PkgClient\SDK\Session;
 use Protobuf\MessageCollection;
@@ -52,7 +53,7 @@ final class RPCApi
                 'provider' => $token->authType()
             ]),
             'direction' => RpcDirection::REQUEST(),
-            'rpcId' => 8145806132888207461,
+            'rpcId' => self::RPC_ID,
             'latitude' => $location->lat(),
             'longitude' => $location->long(),
             'altitude' => $location->alt(),
