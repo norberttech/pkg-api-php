@@ -10,4 +10,9 @@ final class AuthenticationException extends Exception
     {
         return new static("RPC Server is not available, please try again later");
     }
+
+    public static function invalidCredentials() : AuthenticationException
+    {
+        return new static("Can't login, invalid credentials.");
+    }
 }

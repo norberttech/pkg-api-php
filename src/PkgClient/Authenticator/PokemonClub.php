@@ -6,6 +6,7 @@ namespace PkgClient\Authenticator;
 
 use GuzzleHttp\Client;
 use PkgClient\Authenticator;
+use PkgClient\Exception\AuthenticationException;
 use PkgClient\RPCApi;
 use PkgClient\SDK;
 
@@ -63,6 +64,10 @@ final class PokemonClub implements Authenticator
         ]);
 
         $location = current($loginResponse->getHeader('location'));
+
+        if (!$location) {
+            throw AuthenticationException::invalidCredentials();
+        }
 
         parse_str(parse_url($location, PHP_URL_QUERY), $queryParts);
 

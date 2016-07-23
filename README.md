@@ -2,10 +2,9 @@
 
 Proof of concept, do not use anywhere! It's a port of https://github.com/tejado/pgoapi  
 
-### Install dependencies & compile protobuf 
+### Install dependencies
 ```
 $ composer update
-$ composer compile
 ```
 
 ### Obtain user profile with google auth

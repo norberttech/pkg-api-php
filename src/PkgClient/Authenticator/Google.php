@@ -6,6 +6,7 @@ namespace PkgClient\Authenticator;
 
 use GPSOAuthPHP\GPSOAuthPHP;
 use PkgClient\Authenticator;
+use PkgClient\Exception\AuthenticationException;
 
 final class Google implements Authenticator
 {
@@ -20,6 +21,11 @@ final class Google implements Authenticator
         $gpsoauth = new GPSOAuthPHP();
 
         if ($masterToken = $gpsoauth->performMasterLogin($username, $password, self::ANDROID_ID)) {
+            
+            if (array_key_exists('Error', $masterToken)) {
+                throw AuthenticationException::invalidCredentials();
+            }
+
             if ($auth = $gpsoauth->performOAuth($username, $masterToken['Token'], self::ANDROID_ID, self::ANDROID_SERVICE, self::APP_ID, self::SIG)) {
 
                 return new Token($auth['Auth'], (int) $auth['Expiry'], self::AUTH_TYPE);
