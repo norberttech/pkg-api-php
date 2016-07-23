@@ -19,19 +19,20 @@ final class Session
     private $token;
 
     /**
-     * @var string
+     * @var Location
      */
-    private $authType;
+    private $location;
 
     /**
      * @param Token $token
+     * @param Location $location
      * @param string $apiUrl
      */
-    public function __construct(Token $token, string $authType, string $apiUrl)
+    public function __construct(Token $token, Location $location, string $apiUrl)
     {
         $this->apiUrl = $apiUrl;
         $this->token = $token;
-        $this->authType = $authType;
+        $this->location = $location;
     }
 
     /**
@@ -43,11 +44,11 @@ final class Session
     }
 
     /**
-     * @return string
+     * @return Location
      */
-    public function authType() : string
+    public function location() : Location
     {
-        return $this->authType;
+        return $this->location;
     }
 
     /**

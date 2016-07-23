@@ -11,7 +11,8 @@ interface Authenticator
     /**
      * @param string $username
      * @param string $password
-     * @return string
+     *
+     * @return Token
      */
     public function obtainToken(string $username, string $password) : Token;
 }

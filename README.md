@@ -1,6 +1,6 @@
 # Pokemon GO Api Client
 
-Proof of concept, do not use anywhere!  
+Proof of concept, do not use anywhere! It's a port of https://github.com/tejado/pgoapi  
 
 ### Install dependencies & compile protobuf 
 ```

@@ -22,14 +22,21 @@ final class Token
     private $expires;
 
     /**
+     * @var string
+     */
+    private $authType;
+
+    /**
      * @param string $value
      * @param int $expires
+     * @param string $authType
      */
-    public function __construct(string $value, int $expires)
+    public function __construct(string $value, int $expires, string $authType)
     {
         $this->obtained = new \DateTimeImmutable();
         $this->value = $value;
         $this->expires = $expires;
+        $this->authType = $authType;
     }
 
     /**
@@ -46,5 +53,13 @@ final class Token
     public function expires() : int
     {
         return $this->expires;
+    }
+
+    /**
+     * @return string
+     */
+    public function authType()
+    {
+        return $this->authType;
     }
 }

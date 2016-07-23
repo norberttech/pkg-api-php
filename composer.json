@@ -24,6 +24,7 @@
         }
     },
     "minimum-stability": "dev",
+    "prefer-stable": true,
     "scripts": {
         "compile": "php ./vendor/bin/protobuf -i ./proto -o ./src ./proto/*"
     }

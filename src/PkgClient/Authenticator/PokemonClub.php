@@ -6,6 +6,7 @@ namespace PkgClient\Authenticator;
 
 use GuzzleHttp\Client;
 use PkgClient\Authenticator;
+use PkgClient\RPCApi;
 use PkgClient\SDK;
 
 final class PokemonClub implements Authenticator
@@ -40,7 +41,7 @@ final class PokemonClub implements Authenticator
     {
         $sessionResponse = $this->httpClient->get(self::LOGIN_URL, [
             'headers' => [
-                'User-Agent' => SDK::HTTP_USER_AGENT
+                'User-Agent' => RPCApi::HTTP_USER_AGENT
             ],
         ]);
 
@@ -55,7 +56,7 @@ final class PokemonClub implements Authenticator
                 'password' => $password
             ],
             'headers' => [
-                'User-Agent' => SDK::HTTP_USER_AGENT
+                'User-Agent' => RPCApi::HTTP_USER_AGENT
             ],
             'allow_redirects' => false
         ]);
@@ -73,13 +74,13 @@ final class PokemonClub implements Authenticator
                 'code' => $queryParts['ticket']
             ],
             'headers' => [
-                'User-Agent' => SDK::HTTP_USER_AGENT
+                'User-Agent' => RPCApi::HTTP_USER_AGENT
             ],
         ]);
 
         $tokenQuery = (string) $tokenResponse->getBody();
         parse_str($tokenQuery, $tokenData);
 
-        return new Token($tokenData['access_token'], (int) $tokenData['expires']);
+        return new Token($tokenData['access_token'], (int) $tokenData['expires'], 'pct');
     }
 }
